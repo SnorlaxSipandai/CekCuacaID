@@ -70,12 +70,12 @@ const NavbarSearch = ({ inputSearch }: searchProps) => {
   return (
     <div>
       <nav className="fixed top-0 w-full h-15 bg-white/10 backdrop-blur-md flex items-center justify-between z-10">
-        <h1 className="text-[30px] font-google-sans pl-10 font-extrabold text-white">
+        <h1 className="text-[30px] lg:text-[20px] font-google-sans pl-10 font-extrabold text-white">
           <span className="text-red-500">Cek</span>Cuaca{" "}
-          <sup className="text-[15px] font-normal">id</sup>
+          <sup className="text-[15px] lg:text-[10px] font-normal">id</sup>
         </h1>
 
-        <div className="pr-10 flex gap-10">
+        <div className="pr-10 flex gap-10 lg:gap-2">
           {/* provinsi */}
           <select
             className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"

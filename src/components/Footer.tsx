@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div>
       <div className="bottom-0 bg-white/10 backdrop-blur-md w-full fixed h-15 flex justify-center items-center">
-        <footer>©{year} Sulaiman</footer>
+        <footer>©{year} Development By Sulaiman</footer>
       </div>
     </div>
   );

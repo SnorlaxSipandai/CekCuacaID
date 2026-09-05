@@ -63,11 +63,13 @@ function Mapping({ ID }: { ID: string }) {
 
   if (LongLat) {
     return (
+
       <MapContainer
         center={LongLat}
         zoom={2}
-        style={{ height: "600px", width: "50%", borderRadius: "16px "}}
+        style={{ borderRadius: "16px " }}
         // Matikan semua fungsi interaksi:
+        className="lg:w-150 lg:h-110"
         dragging={true}
         zoomControl={false}
         scrollWheelZoom={true}
@@ -79,6 +81,7 @@ function Mapping({ ID }: { ID: string }) {
         <ChangeView center={LongLat} />
         <Marker position={LongLat} />
       </MapContainer>
+
     );
   }
 }
