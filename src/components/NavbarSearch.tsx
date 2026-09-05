@@ -107,7 +107,7 @@ const NavbarSearch = ({ inputSearch }: searchProps) => {
 
           {/* kota/kab */}
           <div className="flex flex-col">
-            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px]">Kota / Kabupaten</label>
+            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] ">Kota / Kabupaten</label>
             <select
               className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
               value={inputKotaKab}
