@@ -96,7 +96,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                     {displayCuaca?.hu}%
                   </span>
                   <span className="text-white text-[40px] lg:text-[20px] font-google-sans">
-                    {displayCuaca?.wd
+                   ᯓ {displayCuaca?.wd
                       ? windDir[displayCuaca.wd]
                       : displayCuaca?.wd}
                   </span>
@@ -130,10 +130,11 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                   {hari.map((jam, i) => {
                     const dateJam = jam?.local_datetime.slice(0, 11);
                     const time = jam?.local_datetime.slice(11, 16);
+                    const descCuaca = ["Cerah", "Cerah Berawan"]
                     return (
                       <div
                         key={i}
-                        className="flex flex-col items-center justify-center rounded-3xl bg-white/20 backdrop-blur-md shadow-black shadow-lg md:shadow-2xl w-29 md:w-40 lg:w-30 h-39 md:h-45 lg:h-38  pt-2 "
+                        className={`flex flex-col items-center justify-center rounded-3xl bg-white/15 backdrop-blur-md shadow-black shadow-lg md:shadow-2xl w-29 md:w-40 lg:w-30 h-39 md:h-45 lg:h-38 pt-2`}
                       >
                         <p className="text-[18px] lg:text-[15px] text-black font-google-sans">
                           {time}

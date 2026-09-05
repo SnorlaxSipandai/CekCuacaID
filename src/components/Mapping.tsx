@@ -61,9 +61,17 @@ function Mapping({ ID }: { ID: string }) {
     console.log(LongLat);
   }
 
+
+  if (!LongLat) {
+    return (
+      <div className="flex justify-center items-center">
+        <h1 className="lg:text-white lg:text-[20px]">Memuat Peta...</h1>
+      </div>
+    )
+  }
+
   if (LongLat) {
     return (
-
       <MapContainer
         center={LongLat}
         zoom={2}
