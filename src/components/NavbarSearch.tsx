@@ -77,102 +77,110 @@ const NavbarSearch = ({ inputSearch }: searchProps) => {
 
         <div className="pr-10 flex gap-10 lg:gap-2">
           {/* provinsi */}
-          <select
-            className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
-            value={inputProvinsi}
-            onChange={(e) => {
-              setInputProvinsi(e.target.value);
-              setInputKotaKab("");
-              setInputKecamatan("");
-              setInputKelDesa("");
-            }}
-          >
-            <option value="" disabled hidden>
-              PROVINSI
-            </option>
-            {inputProvinsiData.map((p) => (
-              <option
-                key={p.kode_wilayah}
-                value={p.kode_wilayah}
-                className="text-black"
-              >
-                {p.nama_wilayah}
+          <div className="flex flex-col">
+            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px]">Provinsi</label>
+            <select
+              className="w-60 h-8  text-start text-[13px] text-white font-poppins "
+              value={inputProvinsi}
+              onChange={(e) => {
+                setInputProvinsi(e.target.value);
+                setInputKotaKab("");
+                setInputKecamatan("");
+                setInputKelDesa("");
+              }}
+            >
+
+              <option value="" disabled hidden>
+                PROVINSI
               </option>
-            ))}
-          </select>
+              {inputProvinsiData.map((p) => (
+                <option
+                  key={p.kode_wilayah}
+                  value={p.kode_wilayah}
+                  className="text-black"
+                >
+                  {p.nama_wilayah}
+                </option>
+              ))}
+            </select>
+          </div>
 
           {/* kota/kab */}
-
-          <select
-            className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
-            value={inputKotaKab}
-            onChange={(e) => {
-              setInputKotaKab(e.target.value);
-              setInputKecamatan("");
-              setInputKelDesa("");
-            }}
-          >
-            <option value="" disabled hidden>
-              KOTA / KABUPATEN
-            </option>
-            {inputKotaKabData.map((p) => (
-              <option
-                key={p.kode_wilayah}
-                value={p.kode_wilayah}
-                className="text-black"
-              >
-                {p.nama_wilayah}
+          <div className="flex flex-col">
+            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px]">Kota / Kabupaten</label>
+            <select
+              className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
+              value={inputKotaKab}
+              onChange={(e) => {
+                setInputKotaKab(e.target.value);
+                setInputKecamatan("");
+                setInputKelDesa("");
+              }}
+            >
+              <option value="" disabled hidden>
+                KOTA / KABUPATEN
               </option>
-            ))}
-          </select>
-
+              {inputKotaKabData.map((p) => (
+                <option
+                  key={p.kode_wilayah}
+                  value={p.kode_wilayah}
+                  className="text-black"
+                >
+                  {p.nama_wilayah}
+                </option>
+              ))}
+            </select>
+          </div>
           {/* kecamatan */}
-
-          <select
-            className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
-            value={inputKecamatan}
-            onChange={(e) => {
-              setInputKecamatan(e.target.value);
-              setInputKelDesa("");
-            }}
-          >
-            <option value="" disabled hidden>
-              KECAMATAN
-            </option>
-            {inputKecamatanData.map((p) => (
-              <option
-                key={p.kode_wilayah}
-                value={p.kode_wilayah}
-                className="text-black"
-              >
-                {p.nama_wilayah.toUpperCase()}
+          <div className="flex flex-col">
+            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px]">Kecamatan</label>
+            <select
+              className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
+              value={inputKecamatan}
+              onChange={(e) => {
+                setInputKecamatan(e.target.value);
+                setInputKelDesa("");
+              }}
+            >
+              <option value="" disabled hidden>
+                KECAMATAN
               </option>
-            ))}
-          </select>
-
+              {inputKecamatanData.map((p) => (
+                <option
+                  key={p.kode_wilayah}
+                  value={p.kode_wilayah}
+                  className="text-black"
+                >
+                  {p.nama_wilayah.toUpperCase()}
+                </option>
+              ))}
+            </select>
+          </div>
           {/*kel/desa */}
-
-          <select
-            className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
-            value={inputKelDesa}
-            onChange={(e) => {
-              inputSearch(e.target.value);
-              setInputKelDesa(e.target.value);
-            }}
-          >
-            <option value="" disabled hidden>
-              KELURAHAN / DESA
-            </option>
-            {inputKelDesaData.map((p) => (
-              <option
-                key={p.kode_wilayah}
-                value={p.kode_wilayah}
-                className="text-black"
-              >
-                {p.nama_wilayah.toUpperCase()}
+          <div className="flex flex-col">
+            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px]">Kelurahan</label>
+            <select
+              className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
+              value={inputKelDesa}
+              onChange={(e) => {
+                inputSearch(e.target.value);
+                setInputKelDesa(e.target.value);
+              }}
+            >
+              <option value="" disabled hidden>
+                KELURAHAN / DESA
               </option>
-            ))}
-          </select>
+              {inputKelDesaData.map((p) => (
+                <option
+                  key={p.kode_wilayah}
+                  value={p.kode_wilayah}
+                  className="text-black"
+                >
+                  {p.nama_wilayah.toUpperCase()}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </nav>
     </div>

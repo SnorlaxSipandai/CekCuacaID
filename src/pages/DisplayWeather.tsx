@@ -80,8 +80,8 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
     <div>
       <div className="flex flex-col items-center pt-10">
         <div className="bg-white/10 backdrop-blur-md w-450 lg:w-300 h-150 flex items-start rounded-2xl justify-center p-20 gap-50 outline-2 outline-white ">
-          <div className="flex flex-col items-center w-110">
-            <h1 className="text-white font-poppins text-[60px] lg:text-[50px] font-extrabold">
+          <div className="flex flex-col items-center w-110 lg:w-300">
+            <h1 className="text-start text-white font-poppins text-[60px] lg:text-[50px] font-extrabold ">
               {display?.desa}
             </h1>
             <div className="flex flex-col items-center">
