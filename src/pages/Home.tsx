@@ -1,22 +1,63 @@
+import { useState } from "react";
+
 const Home = () => {
+  const [mulai, setMulai] = useState(false);
+
+  const ready = () => {
+    setMulai(true);
+  };
+
   return (
     <div className="relative overflow-hidden h-full">
-      <img src="/images/Awan.png" alt="awan" width={2000} className="animate-cloude-infinite absolute top-0" style={{ animationDuration: '100s' }} />
-      <div className="flex flex-col pt-20">
+      <img
+        src="/images/Awan.png"
+        alt="awan"
+        width={2000}
+        className="animate-cloude-infinite absolute top-0"
+        style={{ animationDuration: "100s" }}
+      />
+      <div className="flex flex-col pt-20 items-center gap-5">
+        <div
+          className={`bg-white/10 backdrop-blur-xl flex flex-col w-300 justify-between transition-all duration-600 ease-in-out py-5 ${mulai ? "h-190" : "h-120"} rounded-[10px] pl-10`}
+        >
+          <div className="text-center flex flex-col items-center">
+            {/* <img src="https://png.pngtree.com/png-vector/20250126/ourmid/pngtree-soft-whites-clouds-on-transparent-background-png-image_15341810.png" alt="awan" className="animate-cloude-infinite absolute w-200 top-80" style={{ animationDuration: '30s'}}/> */}
+            <p className="xl:text-[60px] lg:text-[95px] font-poppins text-[#D6C7FF] font-extrabold text-center">
+              Cek Prakiraan Cuaca
+            </p>
+            <span className="z-10 xl:text-[60px] lg:text-[95px] font-poppins font-extrabold text-center">
+              <span className="text-white">Indo</span>
+              <span className="text-red-500">nesia</span>
+            </span>
 
-        {/* <img src="https://png.pngtree.com/png-vector/20250126/ourmid/pngtree-soft-whites-clouds-on-transparent-background-png-image_15341810.png" alt="awan" className="animate-cloude-infinite absolute w-200 top-80" style={{ animationDuration: '30s'}}/> */}
-        <p className="text-[150px] lg:text-[95px] font-poppins text-white font-extrabold text-center">
-          Cek Prakiraan Cuaca
-        </p>
-        <span className="z-10 text-[150px] lg:text-[95px] font-poppins font-extrabold text-center"><span className="text-white">Indo</span><span className="text-red-500">nesia</span></span>
+            <button
+              className="bg-black text-white w-50 h-10 rounded-2xl transition-all duration-200 ease-in-out  hover:scale-110 cursor-pointer font-poppins"
+              onClick={ready}
+            >
+              Mulai
+            </button>
+            <div
+              className={`bg-amber-300 w-280 mt-10 transition-all duration-200 ease-in-out text-white ${mulai ? "opacity-100" : "opacity-0"}`}
+            >
+              <p
+                className={`text-[15px] font-google-sans font-medium text-center `}
+              >
+                Kamu bisa cek prakiraan cuaca dari Kelurahan / Desa tempat kamu
+                tinggal, sekarang hingga 2 hari kedepan
+              </p>
+            </div>
+          </div>
 
-        <p className="text-[20px] font-google-sans font-medium text-center text-white">
-          Kamu bisa cek prakiraan cuaca dari Kelurahan / Desa tempat kamu tinggal, sekarang hingga 2 hari kedepan
-        </p>
-
-        <div className="flex items-center justify-center pt-8">
-          <p className="font-poppins font-bold text-white">Data by</p>
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhY5VpayLRkp-bMZ-LhpM6zilUjMLa06GnC3SuXXshIqDIH7qgiZ5DlqHT8KuJ7fl5vpjICCQnJXBCJDL90983aaCGuSkQl_dKVV6tGdhU4U6cpKXnIwQmhyqMDKga8FBjknge7T7GWZik/s2048/Logo+BMKG.png" alt="BMKG" className="w-30" />
+          <div
+            className={`flex items-center justify-center transition-all duration-200 ease-in-out text-white ${mulai ? "opacity-100" : "opacity-0"}`}
+          >
+            <p className="font-poppins font-bold text-white">Data by</p>
+            <img
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhY5VpayLRkp-bMZ-LhpM6zilUjMLa06GnC3SuXXshIqDIH7qgiZ5DlqHT8KuJ7fl5vpjICCQnJXBCJDL90983aaCGuSkQl_dKVV6tGdhU4U6cpKXnIwQmhyqMDKga8FBjknge7T7GWZik/s2048/Logo+BMKG.png"
+              alt="BMKG"
+              className="w-30 "
+            />
+          </div>
         </div>
       </div>
     </div>

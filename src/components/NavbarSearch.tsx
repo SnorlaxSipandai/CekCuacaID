@@ -69,16 +69,18 @@ const NavbarSearch = ({ inputSearch }: searchProps) => {
 
   return (
     <div>
-      <nav className="fixed top-0 w-full h-15 bg-white/30 backdrop-blur-md flex items-center justify-between z-10">
-        <h1 className="text-[30px] lg:text-[20px] font-google-sans pl-10 font-extrabold text-white">
-          <span className="text-red-500">Cek</span>Cuaca{" "}
-          <sup className="text-[15px] lg:text-[10px] font-normal">id</sup>
+      <nav className="fixed top-0 w-full h-15 bg-white/30 backdrop-blur-xl flex items-center justify-between z-10">
+        <h1 className="xl:text-[30px] lg:text-[20px] font-google-sans pl-10 font-extrabold text-white">
+          <span className="text-red-500">Cek</span>Cuaca
+          <sup className="xl:text-[15px] lg:text-[10px] font-normal">id</sup>
         </h1>
 
         <div className="pr-10 flex gap-10 lg:gap-2">
           {/* provinsi */}
           <div className="flex flex-col">
-            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold">Provinsi</label>
+            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold">
+              Provinsi
+            </label>
             <select
               className="w-60 h-8  text-start text-[13px] text-white font-poppins "
               value={inputProvinsi}
@@ -89,7 +91,6 @@ const NavbarSearch = ({ inputSearch }: searchProps) => {
                 setInputKelDesa("");
               }}
             >
-
               <option value="" disabled hidden>
                 ---
               </option>
@@ -107,7 +108,9 @@ const NavbarSearch = ({ inputSearch }: searchProps) => {
 
           {/* kota/kab */}
           <div className="flex flex-col">
-            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold">Kota / Kabupaten</label>
+            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold">
+              Kota / Kabupaten
+            </label>
             <select
               className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
               value={inputKotaKab}
@@ -133,7 +136,9 @@ const NavbarSearch = ({ inputSearch }: searchProps) => {
           </div>
           {/* kecamatan */}
           <div className="flex flex-col">
-            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold">Kecamatan</label>
+            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold">
+              Kecamatan
+            </label>
             <select
               className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
               value={inputKecamatan}
@@ -158,7 +163,9 @@ const NavbarSearch = ({ inputSearch }: searchProps) => {
           </div>
           {/*kel/desa */}
           <div className="flex flex-col">
-            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold">Kelurahan</label>
+            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold">
+              Kelurahan
+            </label>
             <select
               className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
               value={inputKelDesa}
