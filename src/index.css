@@ -5,4 +5,18 @@
 @theme {
   --font-poppins: "Poppins", sans-serif;
   --font-google-sans: "Google Sans", sans-serif;
+
+  --animate-cloude-infinite: moveCloude linear infinite
+}
+
+
+@keyframes moveCloude {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100vw);
+  }
+
 }

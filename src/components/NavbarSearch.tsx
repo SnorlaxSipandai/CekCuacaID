@@ -69,7 +69,7 @@ const NavbarSearch = ({ inputSearch }: searchProps) => {
 
   return (
     <div>
-      <nav className="fixed top-0 w-full h-15 bg-white/10 backdrop-blur-md flex items-center justify-between z-10">
+      <nav className="fixed top-0 w-full h-15 bg-white/30 backdrop-blur-md flex items-center justify-between z-10">
         <h1 className="text-[30px] lg:text-[20px] font-google-sans pl-10 font-extrabold text-white">
           <span className="text-red-500">Cek</span>Cuaca{" "}
           <sup className="text-[15px] lg:text-[10px] font-normal">id</sup>
