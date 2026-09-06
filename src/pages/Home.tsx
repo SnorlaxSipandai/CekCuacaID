@@ -18,7 +18,7 @@ const Home = () => {
       />
       <div className="flex flex-col pt-20 items-center gap-5">
         <div
-          className={`bg-white/10 backdrop-blur-xl flex flex-col w-300 justify-between transition-all duration-600 ease-in-out py-5 ${mulai ? "h-190" : "h-120"} rounded-[10px] pl-10`}
+          className={`bg-white/10 backdrop-blur-xl flex flex-col w-300 justify-between transition-all duration-600 ease-in-out py-5 ${mulai ? "xl:h-130" : "xl:h-90"} ${mulai ? "2xl:h-190" : "2xl:h-120"} rounded-[10px] pl-10`}
         >
           <div className="text-center flex flex-col items-center">
             {/* <img src="https://png.pngtree.com/png-vector/20250126/ourmid/pngtree-soft-whites-clouds-on-transparent-background-png-image_15341810.png" alt="awan" className="animate-cloude-infinite absolute w-200 top-80" style={{ animationDuration: '30s'}}/> */}
@@ -37,13 +37,13 @@ const Home = () => {
               Mulai
             </button>
             <div
-              className={`bg-amber-300 w-280 mt-10 transition-all duration-200 ease-in-out text-white ${mulai ? "opacity-100" : "opacity-0"}`}
+              className={`bg-white/20 rounded-[10px] absolute -z-10 ${mulai ? "top-55" : "top-30"} w-165 p-5 mt-10 transition-all duration-200 ease-in-out text-white ${mulai ? "opacity-100" : "opacity-0"}`}
             >
               <p
-                className={`text-[15px] font-google-sans font-medium text-center `}
+                className={`text-[15px] font-google-sans font-medium text-justify`}
               >
                 Kamu bisa cek prakiraan cuaca dari Kelurahan / Desa tempat kamu
-                tinggal, sekarang hingga 2 hari kedepan
+                tinggal, sekarang hingga 2 hari kedepan, silahkan input nama provinsi, kota / kabupaten, kecamatan, kelurahan / desa
               </p>
             </div>
           </div>
