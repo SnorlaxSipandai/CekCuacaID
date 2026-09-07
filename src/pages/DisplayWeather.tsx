@@ -68,7 +68,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
     return (
       <>
         <div className="w-full h-screen bg-[url('https://i.pinimg.com/1200x/67/c9/40/67c9405c9f3036098a5286480b0e67ee.jpg')] bg-cover flex justify-center items-center">
-          <p className="text-white text-[50px] lg:text-[25px] font-google-sans">
+          <p className="text-white text-[50px] lg:text-[25px] font-google-sans max-[480px]:text-[15px]">
             Memuat data cuaca...
           </p>
         </div>
@@ -81,7 +81,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
       <div className="flex flex-col items-center pt-10">
         <div className="bg-white/10 backdrop-blur-md w-450 lg:w-300 h-150 max-[480px]:w-90 max-[480px]:h-140 flex items-start rounded-2xl justify-center p-20 gap-50 outline-2 outline-white max-[480px]:p-2 max-[480px]:flex-col max-[480px]:gap-10 max-[480px]:items-center">
           <div className="flex flex-col items-center">
-            <h1 className="text-start text-white font-poppins text-[60px] lg:text-[35px] font-extrabold max-[480px]:text-[20px]">
+            <h1 className="text-start text-white font-poppins text-[60px] lg:text-[35px] font-extrabold max-[480px]:text-[25px]">
               {display?.desa}
             </h1>
             <div className="flex flex-col items-center">
