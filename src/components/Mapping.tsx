@@ -61,13 +61,12 @@ function Mapping({ ID }: { ID: string }) {
     console.log(LongLat);
   }
 
-
   if (!LongLat) {
     return (
       <div className="flex justify-center items-center">
         <h1 className="lg:text-white lg:text-[20px]">Memuat Peta...</h1>
       </div>
-    )
+    );
   }
 
   if (LongLat) {
@@ -77,19 +76,18 @@ function Mapping({ ID }: { ID: string }) {
         zoom={2}
         style={{ borderRadius: "16px " }}
         // Matikan semua fungsi interaksi:
-        className="lg:w-150 lg:h-110"
+        className="lg:w-150 lg:h-110 max-[480px]:w-80 max-[480px]:h-65"
         dragging={true}
         zoomControl={false}
         scrollWheelZoom={true}
         doubleClickZoom={true}
-        touchZoom={false}
+        touchZoom={true}
         keyboard={false}
       >
         <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <ChangeView center={LongLat} />
         <Marker position={LongLat} />
       </MapContainer>
-
     );
   }
 }

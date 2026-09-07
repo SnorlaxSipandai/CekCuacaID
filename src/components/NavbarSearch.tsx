@@ -3,9 +3,10 @@ import { useState } from "react";
 
 interface searchProps {
   inputSearch: (v: string) => void;
+  setAnim: boolean;
 }
 
-const NavbarSearch = ({ inputSearch }: searchProps) => {
+const NavbarSearch = ({ inputSearch, setAnim }: searchProps) => {
   interface dataWilayah {
     nama_wilayah: string;
     kode_wilayah: string;
@@ -69,20 +70,24 @@ const NavbarSearch = ({ inputSearch }: searchProps) => {
 
   return (
     <div>
-      <nav className="fixed top-0 w-full h-15 bg-white/30 backdrop-blur-xl flex items-center justify-between z-10">
-        <h1 className="xl:text-[30px] lg:text-[20px] font-google-sans pl-10 font-extrabold text-white">
+      <nav className="fixed top-0 w-full h-15 bg-white/10 backdrop-blur-xl flex items-center justify-between z-10 gap-5 max-[480px]:relative">
+        <h1 className="xl:text-[30px] lg:text-[30px] max-[450px]:text-[20px] font-google-sans font-extrabol text-white max-[480px]:absolute max-[480px]:left-40">
           <span className="text-red-500">Cek</span>Cuaca
-          <sup className="xl:text-[15px] lg:text-[10px] font-normal">id</sup>
+          <sup className="xl:text-[15px] lg:text-[15px] max-[480px]:text-[12px] font-normal">
+            id
+          </sup>
         </h1>
 
-        <div className="pr-10 flex gap-10 lg:gap-2">
+        <div
+          className={`pr-10 flex gap-10 lg:gap-2 transition-all duration-600 ease-in-out ${setAnim ? "" : "mb-50"}  max-[480px]:gap-2  max-[480px]:pt-5 max-[480px]:absolute ${setAnim ? "max-[480px]:top-15" :"max-[480px]:-top-20"} max-[480px]:left-6`}
+        >
           {/* provinsi */}
           <div className="flex flex-col">
-            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold">
+            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold max-[480px]:text-[10px] ">
               Provinsi
             </label>
             <select
-              className="w-60 h-8  text-start text-[13px] text-white font-poppins "
+              className="w-60 h-8  text-start text-[13px] text-white font-poppins max-[480px]:w-20 "
               value={inputProvinsi}
               onChange={(e) => {
                 setInputProvinsi(e.target.value);
@@ -108,11 +113,11 @@ const NavbarSearch = ({ inputSearch }: searchProps) => {
 
           {/* kota/kab */}
           <div className="flex flex-col">
-            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold">
-              Kota / Kabupaten
+            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold max-[480px]:text-[10px]">
+              Kota / Kab
             </label>
             <select
-              className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
+              className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px] max-[480px]:w-20 "
               value={inputKotaKab}
               onChange={(e) => {
                 setInputKotaKab(e.target.value);
@@ -136,11 +141,11 @@ const NavbarSearch = ({ inputSearch }: searchProps) => {
           </div>
           {/* kecamatan */}
           <div className="flex flex-col">
-            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold">
+            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold max-[480px]:text-[10px]">
               Kecamatan
             </label>
             <select
-              className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
+              className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px] max-[480px]:w-20"
               value={inputKecamatan}
               onChange={(e) => {
                 setInputKecamatan(e.target.value);
@@ -163,11 +168,11 @@ const NavbarSearch = ({ inputSearch }: searchProps) => {
           </div>
           {/*kel/desa */}
           <div className="flex flex-col">
-            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold">
+            <label className="text-center bg-white/15 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold max-[480px]:text-[10px]">
               Kelurahan
             </label>
             <select
-              className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px]"
+              className="w-60 h-8  text-start text-[13px] text-white font-poppins rounded-r-[5px] max-[480px]:w-20"
               value={inputKelDesa}
               onChange={(e) => {
                 inputSearch(e.target.value);
