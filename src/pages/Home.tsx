@@ -25,7 +25,7 @@ const Home = ({ setAnimationNav }: Animation) => {
         style={{ animationDuration: "100s" }}
       />
 
-      <div className="flex flex-col relative pt-20 items-center gap-5 w-full px-4 mt-20 max-w-7xl mx-auto">
+      <div className="flex flex-col relative pt-12 items-center gap-5 w-full px-4 mt-20 max-w-7xl mx-auto">
         {/* CARD PARENT: Gunakan px-6 / px-10 agar simetris */}
         <div
           className={`w-full relative bg-white/10 backdrop-blur-xl flex flex-col lg:w-[1000px] xl:w-[1200px] justify-between transition-all duration-600 ease-in-out py-4 ${
