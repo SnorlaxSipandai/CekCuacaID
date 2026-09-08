@@ -71,7 +71,7 @@ const NavbarSearch = ({ inputSearch, setAnim }: searchProps) => {
   return (
     <div>
       {/* NAVBAR CONTAINER: Harus relative + w-full sebagai acuan absolute child-nya */}
-      <nav className="fixed top-0 w-full h-15 bg-white/10 backdrop-blur-xl flex items-center justify-between z-10 px-4 max-[480px]:relative max-[480px]:h-auto max-[480px]:py-4">
+      <nav className="fixed top-0 w-full h-15 bg-white/10 backdrop-blur-xl flex items-center justify-between z-10 px-4 max-[480px]:relative max-[480px]:h-12 max-[480px]:py-4">
         {/* 1. JUDUL: Diposisikan ABSOLUTE tepat di tengah Navbar Container */}
         <h1 className="xl:text-[30px] lg:text-[30px] text-[20px] font-google-sans font-extrabold text-white max-[480px]:absolute max-[480px]:top-3 max-[480px]:left-1/2 max-[480px]:-translate-x-1/2 max-[480px]:whitespace-nowrap">
           <span className="text-red-500">Cek</span>Cuaca

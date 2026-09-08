@@ -76,7 +76,7 @@ function Mapping({ ID }: { ID: string }) {
         zoom={2}
         style={{ borderRadius: "16px " }}
         // Matikan semua fungsi interaksi:
-        className="lg:w-150 lg:h-110 max-[480px]:w-80 max-[480px]:h-65"
+        className="lg:w-150 lg:h-110 max-[480px]:w-75 max-[480px]:h-65"
         dragging={true}
         zoomControl={false}
         scrollWheelZoom={true}
