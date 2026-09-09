@@ -129,16 +129,13 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
 
           return (
             <React.Fragment>
-              <div
-                className="flex flex-col my-2 rounded-2xl bg-white/20 backdrop-blur-md outline-2 outline-white w-full mt-8 py-5 h-full"
-                onClick={() => setIndex(i)}
-              >
+              <div className="flex flex-col my-2 rounded-2xl bg-white/20 backdrop-blur-md outline-2 outline-white w-full mt-8 py-5 h-full">
                 <p className="font-google-sans font-bold text-start px-10 max-[480px]:px-9">
                   {detailHari} : {namaHari}
                 </p>
 
                 <div className="grid grid-cols-3 md:grid-cols-8 max-[480px]:grid-cols-3 gap-x-5 md:gap-x-5 lg:gap-x-1 gap-y-4 md:gap-y-5 pt-5 px-10 py-10 lg:w-300 max-[480px]:mx-auto max-[480px]:gap-x-5 max-[480px]:px-3">
-                  {hari.map((jam, i) => {
+                  {hari.map((jam, iJam) => {
                     const dateJam = jam?.local_datetime.slice(0, 11);
                     const time = jam?.local_datetime.slice(11, 16);
 
@@ -146,6 +143,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                       <div
                         key={i}
                         className={`flex flex-col relative items-center justify-center rounded-[10px] bg-white/15 backdrop-blur-md shadow-black shadow-lg md:shadow-2xl w-29 max-[480px]:w-22 max-[480px]:h-30 md:w-40 lg:w-30 h-39 md:h-45 lg:h-38 pt-2 transition-all duration-200 ease-in-out hover:scale-110`}
+                        onClick={() => setIndex(i)}
                       >
                         {jam.weather_desc.includes("Hujan") && (
                           <div className="absolute top-2 right-3">
@@ -211,7 +209,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                   })}
                 </div>
                 <div
-                  className={`h-50 mx-auto w-11/12 rounded-[10px] bg-white/10 backdrop-blur-xl ${i == index ? "visible" : "hidden"}`}
+                  className={` mx-auto w-11/12 rounded-[10px] bg-white backdrop-blur-xl transition-all duration-500 ease-in-out ${i == index ? "h-50" : "h-0"}`}
                 >
                   <article>
                     <span></span>
