@@ -16,10 +16,11 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
   }
 
   interface dataCuacaDisplay {
+    id: null;
     weather_desc: string;
     t: number;
     image: string;
-    hu: number;
+    hu: null;
     wd: string;
     tcc: number;
     tp: number;
@@ -33,6 +34,8 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
     null,
   );
   const [data, setData] = useState<dataCuaca[][]>([]);
+
+  const [index, setIndex] = useState<null | number>(null);
 
   useEffect(() => {
     fetch(`https://api.bmkg.go.id/publik/prakiraan-cuaca?adm4=${wilayah}`)
@@ -51,8 +54,6 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
       });
   }, [wilayah]);
 
-  console.log(data);
-
   const windDir: Record<string, string> = {
     N: "Utara",
     S: "Selatan",
@@ -63,6 +64,8 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
     NW: "Barat Laut",
     SW: "Barat Daya",
   };
+
+  console.log(index);
 
   if (!data || !Array.isArray(data) || data.length === 0) {
     return (
@@ -77,7 +80,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
   }
 
   return (
-    <div>
+    <div className="relative">
       <div className="flex flex-col items-center pt-25">
         <div className="w-full bg-white/10 backdrop-blur-md lg:w-300 h-150 max-[480px]:h-140 flex items-start rounded-2xl justify-center p-20 gap-50 outline-2 outline-white max-[480px]:p-2 max-[480px]:flex-col max-[480px]:gap-10 max-[480px]:items-center">
           <div className="flex flex-col items-center w-full max-[480px]:mx-auto">
@@ -125,8 +128,11 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
           const detailHari = i === 0 ? "Hari ini" : i === 1 ? "Besok" : "Lusa";
 
           return (
-            <React.Fragment key={i}>
-              <div className="flex flex-col my-2 rounded-2xl bg-white/20 backdrop-blur-md outline-2 outline-white w-full mt-8 py-5 h-full">
+            <React.Fragment>
+              <div
+                className="flex flex-col my-2 rounded-2xl bg-white/20 backdrop-blur-md outline-2 outline-white w-full mt-8 py-5 h-full"
+                onClick={() => setIndex(i)}
+              >
                 <p className="font-google-sans font-bold text-start px-10 max-[480px]:px-9">
                   {detailHari} : {namaHari}
                 </p>
@@ -139,7 +145,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                     return (
                       <div
                         key={i}
-                        className={`flex flex-col relative items-center justify-center rounded-[10px] bg-white/15 backdrop-blur-md shadow-black shadow-lg md:shadow-2xl w-29 max-[480px]:w-22 max-[480px]:h-30 md:w-40 lg:w-30 h-39 md:h-45 lg:h-38 pt-2`}
+                        className={`flex flex-col relative items-center justify-center rounded-[10px] bg-white/15 backdrop-blur-md shadow-black shadow-lg md:shadow-2xl w-29 max-[480px]:w-22 max-[480px]:h-30 md:w-40 lg:w-30 h-39 md:h-45 lg:h-38 pt-2 transition-all duration-200 ease-in-out hover:scale-110`}
                       >
                         {jam.weather_desc.includes("Hujan") && (
                           <div className="absolute top-2 right-3">
@@ -177,7 +183,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                           </div>
                         )}
 
-                         {jam.weather_desc == "Udara Kabur" && (
+                        {jam.weather_desc == "Udara Kabur" && (
                           <div className="absolute top-2 right-3">
                             <span className="w-3 h-3 relative flex">
                               <span className="absolute bg-yellow-600 animate-ping rounded-full h-full w-full"></span>
@@ -203,6 +209,13 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                       </div>
                     );
                   })}
+                </div>
+                <div
+                  className={`h-50 mx-auto w-11/12 rounded-[10px] bg-white/10 backdrop-blur-xl ${i == index ? "visible" : "hidden"}`}
+                >
+                  <article>
+                    <span></span>
+                  </article>
                 </div>
               </div>
             </React.Fragment>
