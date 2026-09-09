@@ -41,6 +41,7 @@ const App = () => {
         <div className="flex flex-col items-center pt-10 pb-15">
           <DisplayWeather wilayah={wilayah} />
         </div>
+        <Footer />
       </div>
     </div>
   );

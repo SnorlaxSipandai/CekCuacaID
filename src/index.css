@@ -6,10 +6,9 @@
   --font-poppins: "Poppins", sans-serif;
   --font-google-sans: "Google Sans", sans-serif;
 
-  --animate-cloude-infinite: moveCloude linear infinite
-  --animate-infiniteCar: infiniteCarousle linear infinite
+  --animate-cloude-infinite: moveCloude linear infinite;
+  --animate-infiniteCar: infiniteCarousle 2s linear infinite;
 }
-
 
 @keyframes moveCloude {
   0% {
@@ -19,17 +18,13 @@
   100% {
     transform: translateX(100vw);
   }
-
 }
-
 
 @keyframes infiniteCarousle {
   0% {
     transform: translateX(0);
   }
-
   100% {
     transform: translateX(-50%);
   }
-
 }

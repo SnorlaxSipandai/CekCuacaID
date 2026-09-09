@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Mapping from "../components/Mapping";
+import Footer from "../components/Footer";
 
 const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
   interface dataCuaca {
@@ -81,7 +82,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
 
   return (
     <div className="relative">
-      <div className="flex flex-col items-center pt-25">
+      <div className="flex flex-col items-center pt-25 w-full">
         <div className="w-full bg-white/10 backdrop-blur-md lg:w-300 h-150 max-[480px]:h-140 flex items-start rounded-2xl justify-center p-20 gap-50 outline-2 outline-white max-[480px]:p-2 max-[480px]:flex-col max-[480px]:gap-10 max-[480px]:items-center">
           <div className="flex flex-col items-center w-full max-[480px]:mx-auto">
             <h1 className="text-start text-white font-poppins text-[60px] lg:text-[35px] font-extrabold max-[480px]:text-[25px]">
@@ -131,32 +132,24 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
             <React.Fragment>
               <div
                 key={i}
-                onClick={() => setIndex(i)}
-                className={`flex flex-col rounded-2xl bg-white/20 backdrop-blur-md outline-2 outline-white w-full mt-8 py-5 overflow-hidden hover:cursor-pointer transition-all duration-500 ease-in-out ${index == i ? "h-50" : "h-15"}`}
+                className={`flex flex-col rounded-2xl bg-white/20 backdrop-blur-md outline-2 outline-white mx-auto mt-8 py-5 overflow-hidden h-full px-10 `}
               >
-                <div className="flex justify-between px-4">
-                  <p className="font-google-sans font-bold text-start px-10 max-[480px]:px-9">
-                    {detailHari} : {namaHari}
-                  </p>
+                <p className="font-google-sans font-bold text-start px-10 max-[480px]:px-2">
+                  Prediksi Cuaca {detailHari} : {namaHari}
+                </p>
 
-                  <img
-                    src="/images/layarperbesar.png"
-                    alt="Layar"
-                    className="w-4 h-4"
-                  />
-                </div>
-                <div className="grid grid-cols-3 md:grid-cols-8 max-[480px]:flex w-50 gap-x-5 md:gap-x-5 lg:gap-x-1 gap-y-4 md:gap-y-5 pt-5 py-10 lg:w-300 max-[480px]:mx-auto max-[480px]:gap-x-2">
+                <div className="grid grid-cols-3 md:grid-cols-8 gap-x-2 md:gap-x-5 lg:gap-x-1 gap-y-4 md:gap-y-5 pt-5 py-10 lg:w-300">
                   {hari.map((jam, iJam) => {
                     const dateJam = jam?.local_datetime.slice(0, 11);
                     const time = jam?.local_datetime.slice(11, 16);
 
                     return (
                       <div
-                        key={i}
-                        className={`flex flex-col relative shrink-0 items-center justify-center rounded-[10px] bg-white/15 backdrop-blur-md shadow-black shadow-lg md:shadow-2xl w-29 max-[480px]:w-25 max-[480px]:h-30 md:w-40 lg:w-30 h-39 md:h-45 lg:h-38 pt-2 transition-all duration-200 ease-in-out hover:scale-110 hover:cursor-pointer`}
+                        key={iJam}
+                        className={`flex flex-col relative items-center justify-center rounded-[10px] bg-white/15 backdrop-blur-md gap-x-10 shadow-black shadow-lg md:shadow-2xl w-25 max-[480px]:w-20 max-[480px]:h-25 md:w-40 lg:w-30 h-39 md:h-45 lg:h-38 pt-2 transition-all duration-200 ease-in-out hover:scale-110 hover:cursor-pointer`}
                       >
                         {jam.weather_desc.includes("Hujan") && (
-                          <div className="absolute top-2 right-3">
+                          <div className="absolute -top-1 -right-1">
                             <span className="w-3 h-3 relative flex">
                               <span className="absolute bg-red-600 animate-ping rounded-full h-full w-full"></span>
                               <span className="relative bg-red-500 w-3 h-3 inline-flex rounded-full"></span>
@@ -165,16 +158,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                         )}
 
                         {jam.weather_desc.includes("Cerah") && (
-                          <div className="absolute top-2 right-3">
-                            <span className="w-3 h-3 relative flex">
-                              <span className="absolute bg-green-600 animate-ping rounded-full h-full w-full"></span>
-                              <span className="relative bg-green-500 w-3 h-3 inline-flex rounded-full"></span>
-                            </span>
-                          </div>
-                        )}
-
-                        {jam.weather_desc.includes("Cerah") && (
-                          <div className="absolute top-2 right-3">
+                          <div className="absolute -top-1 -right-1">
                             <span className="w-3 h-3 relative flex">
                               <span className="absolute bg-green-600 animate-ping rounded-full h-full w-full"></span>
                               <span className="relative bg-green-500 w-3 h-3 inline-flex rounded-full"></span>
@@ -183,7 +167,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                         )}
 
                         {jam.weather_desc == "Berawan" && (
-                          <div className="absolute top-2 right-3">
+                          <div className="absolute -top-1 -right-1">
                             <span className="w-3 h-3 relative flex">
                               <span className="absolute bg-yellow-600 animate-ping rounded-full h-full w-full"></span>
                               <span className="relative bg-yellow-500 w-3 h-3 inline-flex rounded-full"></span>
@@ -192,10 +176,19 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                         )}
 
                         {jam.weather_desc == "Udara Kabur" && (
-                          <div className="absolute top-2 right-3">
+                          <div className="absolute -top-1 -right-1">
                             <span className="w-3 h-3 relative flex">
                               <span className="absolute bg-yellow-600 animate-ping rounded-full h-full w-full"></span>
                               <span className="relative bg-yellow-500 w-3 h-3 inline-flex rounded-full"></span>
+                            </span>
+                          </div>
+                        )}
+
+                        {jam.weather_desc == "Petir" && (
+                          <div className="absolute -top-1 -right-1">
+                            <span className="w-3 h-3 relative flex">
+                              <span className="absolute bg-black animate-ping rounded-full h-full w-full"></span>
+                              <span className="relative bg-black w-3 h-3 inline-flex rounded-full"></span>
                             </span>
                           </div>
                         )}
