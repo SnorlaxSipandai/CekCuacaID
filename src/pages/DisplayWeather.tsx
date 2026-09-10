@@ -2,15 +2,17 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Mapping from "../components/Mapping";
 import Footer from "../components/Footer";
+import InfoWeather from "../components/InfoWeather";
+import FilterWeather from "../components/FilterWeather";
+
+export interface dataCuaca {
+  weather_desc: string;
+  t: string;
+  image: string;
+  local_datetime: string;
+}
 
 const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
-  interface dataCuaca {
-    weather_desc: string;
-    t: string;
-    image: string;
-    local_datetime: string;
-  }
-
   interface dataLokasi {
     desa: string;
     kotkab: string;
@@ -82,7 +84,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
 
   return (
     <div className="relative">
-      <div className="flex flex-col items-center pt-25 w-full">
+      <div className="flex flex-col items-start pt-25 w-full">
         <div className="w-full bg-white/10 backdrop-blur-md lg:w-300 h-150 max-[480px]:h-140 flex items-start rounded-2xl justify-center p-20 gap-50 outline-2 outline-white max-[480px]:p-2 max-[480px]:flex-col max-[480px]:gap-10 max-[480px]:items-center">
           <div className="flex flex-col items-center w-full max-[480px]:mx-auto">
             <h1 className="text-start text-white font-poppins text-[60px] lg:text-[35px] font-extrabold max-[480px]:text-[25px]">
@@ -119,6 +121,8 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
           <Mapping ID={wilayah} />
         </div>
 
+        <InfoWeather />
+
         {data.map((hari, i) => {
           const dateHari = hari[0].local_datetime.slice(0, 11);
           const dateObj = new Date(dateHari);
@@ -138,6 +142,8 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                   Prediksi Cuaca {detailHari} : {namaHari}
                 </p>
 
+                <FilterWeather dataHari={hari} />
+
                 <div className="grid grid-cols-3 md:grid-cols-8 gap-x-2 md:gap-x-5 lg:gap-x-1 gap-y-4 md:gap-y-5 pt-5 py-10 lg:w-300">
                   {hari.map((jam, iJam) => {
                     const dateJam = jam?.local_datetime.slice(0, 11);
@@ -146,7 +152,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                     return (
                       <div
                         key={iJam}
-                        className={`flex flex-col relative items-center justify-center rounded-[10px] bg-white/15 backdrop-blur-md gap-x-10 shadow-black shadow-lg md:shadow-2xl w-25 max-[480px]:w-20 max-[480px]:h-25 md:w-40 lg:w-30 h-39 md:h-45 lg:h-38 pt-2 transition-all duration-200 ease-in-out hover:scale-110 hover:cursor-pointer`}
+                        className={`flex flex-col relative items-center justify-center rounded-[10px] bg-violet-300 backdrop-blur-xl gap-x-10 shadow-black shadow-lg md:shadow-2xl w-25 max-[480px]:w-20 max-[480px]:h-25 md:w-40 lg:w-30 h-39 md:h-45 lg:h-38 pt-2 transition-all duration-200 ease-in-out hover:scale-110 hover:cursor-pointer`}
                       >
                         {jam.weather_desc.includes("Hujan") && (
                           <div className="absolute -top-1 -right-1">
@@ -175,11 +181,20 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                           </div>
                         )}
 
+                        {jam.weather_desc == "Kabut/Asap" && (
+                          <div className="absolute -top-1 -right-1">
+                            <span className="w-3 h-3 relative flex">
+                              <span className="absolute bg-gray-600 animate-ping rounded-full h-full w-full"></span>
+                              <span className="relative bg-gray-500 w-3 h-3 inline-flex rounded-full"></span>
+                            </span>
+                          </div>
+                        )}
+
                         {jam.weather_desc == "Udara Kabur" && (
                           <div className="absolute -top-1 -right-1">
                             <span className="w-3 h-3 relative flex">
-                              <span className="absolute bg-yellow-600 animate-ping rounded-full h-full w-full"></span>
-                              <span className="relative bg-yellow-500 w-3 h-3 inline-flex rounded-full"></span>
+                              <span className="absolute bg-blue-600 animate-ping rounded-full h-full w-full"></span>
+                              <span className="relative bg-blue-500 w-3 h-3 inline-flex rounded-full"></span>
                             </span>
                           </div>
                         )}
