@@ -83,7 +83,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
 
   return (
     <div className="relative">
-      <div className="flex flex-col items-start pt-30 w-full">
+      <div className="flex flex-col items-start pt-40 w-full">
         <div className="w-full bg-white/10 backdrop-blur-md lg:w-300 h-150 max-[480px]:h-140 flex items-start rounded-2xl justify-center p-20 gap-50 outline-2 outline-white max-[480px]:p-2 max-[480px]:flex-col max-[480px]:gap-10 max-[480px]:items-center">
           <div className="flex flex-col items-center w-full max-[480px]:mx-auto">
             <h1 className="text-start text-white font-poppins text-[60px] lg:text-[35px] font-extrabold max-[480px]:text-[25px]">
