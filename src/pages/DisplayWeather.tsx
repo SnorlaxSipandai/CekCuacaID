@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Mapping from "../components/Mapping";
-import Footer from "../components/Footer";
 import InfoWeather from "../components/InfoWeather";
 import FilterWeather from "../components/FilterWeather";
 
@@ -38,7 +37,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
   );
   const [data, setData] = useState<dataCuaca[][]>([]);
 
-  const [index, setIndex] = useState<null | number>(null);
+  // const [index, setIndex] = useState<null | number>(null);
 
   useEffect(() => {
     fetch(`https://api.bmkg.go.id/publik/prakiraan-cuaca?adm4=${wilayah}`)
@@ -68,7 +67,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
     SW: "Barat Daya",
   };
 
-  console.log(index);
+  // console.log(index);
 
   if (!data || !Array.isArray(data) || data.length === 0) {
     return (
@@ -84,7 +83,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
 
   return (
     <div className="relative">
-      <div className="flex flex-col items-start pt-25 w-full">
+      <div className="flex flex-col items-start pt-30 w-full">
         <div className="w-full bg-white/10 backdrop-blur-md lg:w-300 h-150 max-[480px]:h-140 flex items-start rounded-2xl justify-center p-20 gap-50 outline-2 outline-white max-[480px]:p-2 max-[480px]:flex-col max-[480px]:gap-10 max-[480px]:items-center">
           <div className="flex flex-col items-center w-full max-[480px]:mx-auto">
             <h1 className="text-start text-white font-poppins text-[60px] lg:text-[35px] font-extrabold max-[480px]:text-[25px]">
@@ -138,11 +137,16 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                 key={i}
                 className={`flex flex-col rounded-2xl bg-white/20 backdrop-blur-md outline-2 outline-white mx-auto mt-8 py-5 overflow-hidden h-full px-10 `}
               >
-                <p className="font-google-sans font-bold text-start px-10 max-[480px]:px-2">
-                  Prediksi Cuaca {detailHari} : {namaHari}
+                <p className="font-google-sans font-bold text-center px-10 max-[480px]:px-2">
+                  {namaHari}
                 </p>
 
-                <FilterWeather dataHari={hari} />
+                {/* <FilterWeather dataHari={hari} /> */}
+
+                {/* <div className="flex items-center w-full h-full bg-red-500 mt-5 px-5 rounded-2xl">
+                  <p className="text-white">Peringatan !!</p>
+                  <p className="text-white">ada petir pada jam : </p>
+                </div> */}
 
                 <div className="grid grid-cols-3 md:grid-cols-8 gap-x-2 md:gap-x-5 lg:gap-x-1 gap-y-4 md:gap-y-5 pt-5 py-10 lg:w-300">
                   {hari.map((jam, iJam) => {
@@ -152,7 +156,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                     return (
                       <div
                         key={iJam}
-                        className={`flex flex-col relative items-center justify-center rounded-[10px] bg-violet-300 backdrop-blur-xl gap-x-10 shadow-black shadow-lg md:shadow-2xl w-25 max-[480px]:w-20 max-[480px]:h-25 md:w-40 lg:w-30 h-39 md:h-45 lg:h-38 pt-2 transition-all duration-200 ease-in-out hover:scale-110 hover:cursor-pointer`}
+                        className={`flex flex-col relative items-center justify-center rounded-[10px]  backdrop-blur-xl gap-x-10 shadow-black shadow-lg md:shadow-2xl w-25 max-[480px]:w-20 max-[480px]:h-25 md:w-40 lg:w-30 h-39 md:h-45 lg:h-38 pt-2 transition-all duration-200 ease-in-out hover:scale-110 hover:cursor-pointer`}
                       >
                         {jam.weather_desc.includes("Hujan") && (
                           <div className="absolute -top-1 -right-1">
@@ -181,7 +185,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                           </div>
                         )}
 
-                        {jam.weather_desc == "Kabut/Asap" && (
+                        {jam.weather_desc.includes("Kabut") && (
                           <div className="absolute -top-1 -right-1">
                             <span className="w-3 h-3 relative flex">
                               <span className="absolute bg-gray-600 animate-ping rounded-full h-full w-full"></span>
@@ -199,7 +203,7 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                           </div>
                         )}
 
-                        {jam.weather_desc == "Petir" && (
+                        {jam.weather_desc.includes("Petir") && (
                           <div className="absolute -top-1 -right-1">
                             <span className="w-3 h-3 relative flex">
                               <span className="absolute bg-black animate-ping rounded-full h-full w-full"></span>
