@@ -1,5 +1,3 @@
-import React from "react";
-
 const InfoWeather = () => {
   return (
     <div className="w-full">
@@ -18,7 +16,7 @@ const InfoWeather = () => {
           <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
           <label className="font-poppins">Berawan</label>
         </div>
-         <div className="flex items-center gap-x-2">
+        <div className="flex items-center gap-x-2">
           <div className="h-3 w-3 rounded-full bg-gray-500"></div>
           <label className="font-poppins">Kabut</label>
         </div>

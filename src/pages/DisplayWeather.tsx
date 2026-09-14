@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Mapping from "../components/Mapping";
 import InfoWeather from "../components/InfoWeather";
-import FilterWeather from "../components/FilterWeather";
 
 export interface dataCuaca {
   weather_desc: string;
@@ -42,9 +41,6 @@ const DisplayWeather = ({ wilayah, handleVisible }: weatherProps) => {
   );
   const [data, setData] = useState<dataCuaca[][]>([]);
 
-  const [visible, setIsVisible] = useState(false);
-  const [scroll, setScroll] = useState(0);
-
   // const [index, setIndex] = useState<null | number>(null);
 
   useEffect(() => {
@@ -67,15 +63,9 @@ const DisplayWeather = ({ wilayah, handleVisible }: weatherProps) => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollValue = window.scrollY || document.documentElement.scrollTop;
+      const isVisible = scrollValue >= 15;
 
-      if (scrollValue > 15) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-
-      setScroll(scrollValue);
-      handleVisible(visible);
+      handleVisible(isVisible);
     };
 
     document.addEventListener("scroll", handleScroll, { passive: true });
@@ -83,9 +73,7 @@ const DisplayWeather = ({ wilayah, handleVisible }: weatherProps) => {
     return () => {
       document.removeEventListener("scroll", handleScroll);
     };
-  }, [scroll]);
-
-  console.log(visible);
+  }, []);
 
   const windDir: Record<string, string> = {
     N: "Utara",
@@ -160,15 +148,13 @@ const DisplayWeather = ({ wilayah, handleVisible }: weatherProps) => {
             weekday: "long",
           });
 
-          const detailHari = i === 0 ? "Hari ini" : i === 1 ? "Besok" : "Lusa";
-
           return (
             <React.Fragment>
               <div
                 key={i}
                 className={`flex flex-col rounded-2xl bg-white/20 backdrop-blur-md outline-2 outline-white mx-auto mt-8 py-5 overflow-hidden h-full px-10 `}
               >
-                <p className="font-google-sans font-bold text-center px-10 max-[480px]:px-2">
+                <p className="text-[20px] font-google-sans font-bold text-center px-10 max-[480px]:px-2">
                   {namaHari}
                 </p>
 
