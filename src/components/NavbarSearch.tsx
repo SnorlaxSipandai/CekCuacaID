@@ -4,9 +4,10 @@ import { useState } from "react";
 interface searchProps {
   inputSearch: (v: string) => void;
   setAnim: boolean;
+  isVisible: boolean;
 }
 
-const NavbarSearch = ({ inputSearch, setAnim }: searchProps) => {
+const NavbarSearch = ({ inputSearch, setAnim, isVisible }: searchProps) => {
   interface dataWilayah {
     nama_wilayah: string;
     kode_wilayah: string;
@@ -82,13 +83,13 @@ const NavbarSearch = ({ inputSearch, setAnim }: searchProps) => {
 
         {/* 2. MENU SELECT: Diposisikan ABSOLUTE dengan inset-x-4 (mengikuti lebar Navbar) */}
         <div
-          className={`relative md:pr-10 flex gap-2 sm:gap-4 transition-all duration-600 ease-in-out ${
+          className={`relative md:pr-10 flex gap-2 sm:gap-4 transition-all duration-200 ease-in-out ${isVisible ? "max-[480px]:hidden" : "max-[480px]:visible"}  ${
             setAnim ? "" : "mb-50"
           } max-[480px]:absolute max-[480px]:inset-x-4 max-[480px]:grid max-[480px]:grid-cols-2 ${
             setAnim
-              ? "max-[480px]:top-14 max-[480px]:opacity-100 max-[480px]:visible"
-              : "max-[480px]:-top-32 max-[480px]:opacity-0 max-[480px]:invisible"
-          }`}
+              ? "max-[480px]:top-14  max-[480px]:visible"
+              : "max-[480px]:-top-32  max-[480px]:invisible"
+          } `}
         >
           {/* Provinsi */}
           <div className="flex flex-col w-full">

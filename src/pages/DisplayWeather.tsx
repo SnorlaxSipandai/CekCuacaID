@@ -11,7 +11,12 @@ export interface dataCuaca {
   local_datetime: string;
 }
 
-const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
+interface weatherProps {
+  wilayah: string;
+  handleVisible: (v: boolean) => void;
+}
+
+const DisplayWeather = ({ wilayah, handleVisible }: weatherProps) => {
   interface dataLokasi {
     desa: string;
     kotkab: string;
@@ -37,6 +42,9 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
   );
   const [data, setData] = useState<dataCuaca[][]>([]);
 
+  const [visible, setIsVisible] = useState(false);
+  const [scroll, setScroll] = useState(0);
+
   // const [index, setIndex] = useState<null | number>(null);
 
   useEffect(() => {
@@ -55,6 +63,29 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
         });
       });
   }, [wilayah]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollValue = window.scrollY || document.documentElement.scrollTop;
+
+      if (scrollValue > 15) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+
+      setScroll(scrollValue);
+      handleVisible(visible);
+    };
+
+    document.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, [scroll]);
+
+  console.log(visible);
 
   const windDir: Record<string, string> = {
     N: "Utara",
@@ -160,54 +191,54 @@ const DisplayWeather = ({ wilayah }: { wilayah: string }) => {
                       >
                         {jam.weather_desc.includes("Hujan") && (
                           <div className="absolute -top-1 -right-1">
-                            <span className="w-3 h-3 relative flex">
+                            <span className="w-4 h-4 relative flex">
                               <span className="absolute bg-red-600 animate-ping rounded-full h-full w-full"></span>
-                              <span className="relative bg-red-500 w-3 h-3 inline-flex rounded-full"></span>
+                              <span className="relative bg-red-500 w-4 h-4 inline-flex rounded-full"></span>
                             </span>
                           </div>
                         )}
 
                         {jam.weather_desc.includes("Cerah") && (
                           <div className="absolute -top-1 -right-1">
-                            <span className="w-3 h-3 relative flex">
+                            <span className="w-4 h-4 relative flex">
                               <span className="absolute bg-green-600 animate-ping rounded-full h-full w-full"></span>
-                              <span className="relative bg-green-500 w-3 h-3 inline-flex rounded-full"></span>
+                              <span className="relative bg-green-500 w-4 h-4 inline-flex rounded-full"></span>
                             </span>
                           </div>
                         )}
 
                         {jam.weather_desc == "Berawan" && (
                           <div className="absolute -top-1 -right-1">
-                            <span className="w-3 h-3 relative flex">
+                            <span className="w-4 h-4 relative flex">
                               <span className="absolute bg-yellow-600 animate-ping rounded-full h-full w-full"></span>
-                              <span className="relative bg-yellow-500 w-3 h-3 inline-flex rounded-full"></span>
+                              <span className="relative bg-yellow-500 w-4 h-4 inline-flex rounded-full"></span>
                             </span>
                           </div>
                         )}
 
                         {jam.weather_desc.includes("Kabut") && (
                           <div className="absolute -top-1 -right-1">
-                            <span className="w-3 h-3 relative flex">
+                            <span className="w-4 h-4 relative flex">
                               <span className="absolute bg-gray-600 animate-ping rounded-full h-full w-full"></span>
-                              <span className="relative bg-gray-500 w-3 h-3 inline-flex rounded-full"></span>
+                              <span className="relative bg-gray-500 w-4 h-4 inline-flex rounded-full"></span>
                             </span>
                           </div>
                         )}
 
                         {jam.weather_desc == "Udara Kabur" && (
                           <div className="absolute -top-1 -right-1">
-                            <span className="w-3 h-3 relative flex">
+                            <span className="w-4 h-4 relative flex">
                               <span className="absolute bg-blue-600 animate-ping rounded-full h-full w-full"></span>
-                              <span className="relative bg-blue-500 w-3 h-3 inline-flex rounded-full"></span>
+                              <span className="relative bg-blue-500 w-4 h-4 inline-flex rounded-full"></span>
                             </span>
                           </div>
                         )}
 
                         {jam.weather_desc.includes("Petir") && (
                           <div className="absolute -top-1 -right-1">
-                            <span className="w-3 h-3 relative flex">
+                            <span className="w-4 h-4 relative flex">
                               <span className="absolute bg-black animate-ping rounded-full h-full w-full"></span>
-                              <span className="relative bg-black w-3 h-3 inline-flex rounded-full"></span>
+                              <span className="relative bg-black w-4 h-4 inline-flex rounded-full"></span>
                             </span>
                           </div>
                         )}

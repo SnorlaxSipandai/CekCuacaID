@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 const App = () => {
   const [wilayah, setWilayah] = useState("");
   const [animationNav, setAnimationNav] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   // 1273061005
   // 12.72.07.1005
@@ -18,6 +19,10 @@ const App = () => {
     setAnimationNav(v);
   };
 
+  const handleVisible = (v: boolean) => {
+    setVisible(v);
+  };
+
   if (!wilayah) {
     return (
       <div>
@@ -26,6 +31,7 @@ const App = () => {
           <NavbarSearch
             inputSearch={handleInputSearch}
             setAnim={animationNav}
+            isVisible={visible}
           />
           <Home setAnimationNav={handleAnimationNav} />
           <Footer />
@@ -37,9 +43,13 @@ const App = () => {
   return (
     <div>
       <div className=" w-full h-full bg-[url('https://i.pinimg.com/1200x/67/c9/40/67c9405c9f3036098a5286480b0e67ee.jpg')] bg-cover ">
-        <NavbarSearch inputSearch={handleInputSearch} setAnim={animationNav} />
+        <NavbarSearch
+          inputSearch={handleInputSearch}
+          setAnim={animationNav}
+          isVisible={visible}
+        />
         <div className="flex flex-col items-center pt-10 pb-15">
-          <DisplayWeather wilayah={wilayah} />
+          <DisplayWeather wilayah={wilayah} handleVisible={handleVisible} />
         </div>
         <Footer />
       </div>
