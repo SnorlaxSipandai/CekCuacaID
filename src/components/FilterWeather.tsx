@@ -1,6 +1,4 @@
-import type { dataCuaca } from "../pages/DisplayWeather";
-
-const FilterWeather = ({ dataHari }: { dataHari: dataCuaca[] }) => {
+const FilterWeather = () => {
   return (
     <div className="w-full flex justify-end pt-5">
       <div className="bg-white/5 backdrop-blur-xl p-2 rounded-[10px]">
