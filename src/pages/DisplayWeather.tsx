@@ -142,7 +142,7 @@ const DisplayWeather = ({ wilayah, handleVisible }: weatherProps) => {
         <InfoWeather />
 
         {data.map((hari, i) => {
-          const dateHari = hari[0].local_datetime.slice(0, 11);
+          const dateHari = hari[0].local_datetime.slice(0, 10);
           const dateObj = new Date(dateHari);
           const namaHari = dateObj.toLocaleDateString("id-ID", {
             weekday: "long",
