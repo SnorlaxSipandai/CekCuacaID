@@ -83,7 +83,7 @@ const NavbarSearch = ({ inputSearch, setAnim, isVisible }: searchProps) => {
 
         {/* 2. MENU SELECT: Diposisikan ABSOLUTE dengan inset-x-4 (mengikuti lebar Navbar) */}
         <div
-          className={`relative md:pr-10 flex gap-2 sm:gap-4 transition-all duration-300 ease-in-out ${isVisible ? "max-[480px]:opacity-0" : "max-[480px]:opacity-100"} ${isVisible ? "max-[480px]:-translate-y-50" : "max-[480px]:translate-y-0"}  ${
+          className={`relative md:pr-10 flex gap-2 sm:gap-4 transition-all duration-150 ease-in-out ${isVisible ? "max-[480px]:opacity-0" : "max-[480px]:opacity-100"} ${isVisible ? "max-[480px]:-translate-y-50" : "max-[480px]:translate-y-0"}  ${
             setAnim ? "" : "mb-50"
           } max-[480px]:absolute max-[480px]:inset-x-4 max-[480px]:grid max-[480px]:grid-cols-2 ${
             setAnim
