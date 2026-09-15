@@ -93,11 +93,11 @@ const NavbarSearch = ({ inputSearch, setAnim, isVisible }: searchProps) => {
         >
           {/* Provinsi */}
           <div className="flex flex-col w-full">
-            <label className="text-center bg-red-500 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold text-white text-[15px] py-0.5">
+            <label className="text-center bg-[#9450B2] backdrop-blur-xl lg:text-[12px] rounded-t-[5px] font-google-sans font-bold text-white text-[15px] py-0.5">
               Provinsi
             </label>
             <select
-              className="w-full lg:w-60 h-8 text-start text-[11px] lg:text-[13px] text-black bg-white rounded-[5px] px-1 font-poppins focus:outline-none"
+              className="w-full lg:w-60 h-8 text-start text-[11px] lg:text-[13px] rounded-b-[5px] text-black bg-[#DFBBF1] backdrop-blur-xl  px-1 font-poppins focus:outline-none"
               value={inputProvinsi}
               onChange={(e) => {
                 setInputProvinsi(e.target.value);
@@ -119,11 +119,11 @@ const NavbarSearch = ({ inputSearch, setAnim, isVisible }: searchProps) => {
 
           {/* Kota/Kab */}
           <div className="flex flex-col w-full">
-            <label className="text-center bg-red-500 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold text-white text-[15px] py-0.5">
+            <label className="text-center bg-[#9450B2] backdrop-blur-md lg:text-[12px] rounded-t-[5px] font-google-sans font-bold text-white text-[15px] py-0.5">
               Kota / Kabupaten
             </label>
             <select
-              className="w-full lg:w-60 h-8 text-start text-[11px] lg:text-[13px] text-black bg-white rounded-[5px] px-1 font-poppins focus:outline-none"
+              className="w-full lg:w-60 h-8 text-start text-[11px] lg:text-[13px] text-black bg-[#DFBBF1] rounded-b-[5px] px-1 font-poppins focus:outline-none"
               value={inputKotaKab}
               onChange={(e) => {
                 setInputKotaKab(e.target.value);
@@ -144,11 +144,11 @@ const NavbarSearch = ({ inputSearch, setAnim, isVisible }: searchProps) => {
 
           {/* Kecamatan */}
           <div className="flex flex-col w-full">
-            <label className="text-center bg-red-500 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold text-white text-[15px] py-0.5">
+            <label className="text-center bg-[#9450B2] backdrop-blur-md lg:text-[12px] rounded-t-[5px] font-google-sans font-bold text-white text-[15px] py-0.5">
               Kecamatan
             </label>
             <select
-              className="w-full lg:w-60 h-8 text-start text-[11px] lg:text-[13px] text-black bg-white rounded-[5px] px-1 font-poppins focus:outline-none"
+              className="w-full lg:w-60 h-8 text-start text-[11px] lg:text-[13px] text-black bg-[#DFBBF1] rounded-b-[5px] px-1 font-poppins focus:outline-none"
               value={inputKecamatan}
               onChange={(e) => {
                 setInputKecamatan(e.target.value);
@@ -168,11 +168,11 @@ const NavbarSearch = ({ inputSearch, setAnim, isVisible }: searchProps) => {
 
           {/* Kel/Desa */}
           <div className="flex flex-col w-full">
-            <label className="text-center bg-red-500 backdrop-blur-md lg:text-[12px] rounded-[5px] font-google-sans font-bold text-white text-[15px] py-0.5">
+            <label className="text-center bg-[#9450B2] backdrop-blur-md lg:text-[12px] rounded-t-[5px] font-google-sans font-bold text-white text-[15px] py-0.5">
               Kelurahan / Desa
             </label>
             <select
-              className="w-full lg:w-60 h-8 text-start text-[11px] lg:text-[13px] text-black bg-white rounded-[5px] px-1 font-poppins focus:outline-none"
+              className="w-full lg:w-60 h-8 text-start text-[11px] lg:text-[13px] text-black bg-[#DFBBF1] rounded-b-[5px] px-1 font-poppins focus:outline-none"
               value={inputKelDesa}
               onChange={(e) => {
                 inputSearch(e.target.value);

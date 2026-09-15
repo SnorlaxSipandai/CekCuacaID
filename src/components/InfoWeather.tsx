@@ -1,9 +1,8 @@
 const InfoWeather = () => {
   return (
-    <div className="w-full">
-      <div className="w-full flex flex-col mt-10 h-full bg-white/20 backdrop-blur-xl p-3 rounded-[10px] outline-2 outline-white">
-        <label className="font-poppins font-bold">Keterangan Cuaca</label>
-
+    <div className="w-full h-full mt-10 bg-white/20 backdrop-blur-xl py-3 rounded-[10px] outline-2 outline-white">
+      <h2 className="font-poppins font-bold my-2 mx-6">Keterangan Cuaca</h2>
+      <div className="w-full grid grid-cols-2 mx-6">
         <div className="flex items-center gap-x-2">
           <div className="h-3 w-3 rounded-full bg-green-500"></div>
           <label className="font-poppins">Cerah</label>
